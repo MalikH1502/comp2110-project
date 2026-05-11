@@ -100,17 +100,12 @@ class Comp2110Dashboard extends LitElement {
   render() {
     return html`
         <div class = "headerbar">
-          <button class = "hamburger" aria-label="Toggle menu">
-              <span class = "line"></span>
-              <span class = "line"></span>
-              <span class = "line"></span>
-          </button>
           <h1>
             ${this.header}
             <img class="header-ball" src="${this.imgurl}" alt="${this.imgalttext}"> l
             <span class="header2">${this.header2}</span>
           </h1>
-
+        
         </div>
       <main>
         <widget-column>
