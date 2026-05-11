@@ -4,6 +4,7 @@ class LiveMatchWidget extends LitElement{
     static properties = {
         header: {type: String},
         matches: {type: Array},
+        testing: {type: Boolean},
         loading: {type: Boolean},
         error: {type:String}
     }
@@ -15,12 +16,25 @@ class LiveMatchWidget extends LitElement{
         width: 250px;
         height: 250px;
         background-color: azure;
+        border-style: solid;
+        border-color: rgb(223, 238, 240);
+        border-radius: 0 0 5px 5px;
     }
+    h3{
+        margin-top: 0px;
+        padding: 10px;
+        background-color: rgb(249, 250, 252);
+        border-color: rgb(223, 238, 240);
+        border-style: hidden hidden solid;
+        border-width: 1px;
+    }
+        
   `;
 
     constructor() {
         super();
         this.header = 'Live Matches'
+        this.testing = true;
         this.matches = [];
     }
 
@@ -43,6 +57,14 @@ class LiveMatchWidget extends LitElement{
         catch (error){
             console.log("Error", error);
         }
+        // If testing mode is enabled, skip the network call and use placeholder data
+        if (this.testing) {
+            this.matches = [
+                { homeTeam: { shortName: 'ALP' }, awayTeam: { shortName: 'BET' }, minute: '12' },
+                { homeTeam: { shortName: 'GMA' }, awayTeam: { shortName: 'DEL' }, minute: '78' }
+            ];
+            return;
+        }
         }
         connectedCallback(){
             super.connectedCallback();
@@ -52,6 +74,7 @@ class LiveMatchWidget extends LitElement{
             if (this.matches.length >0){
             return html`
             <div>
+            <h3> Live Scores</h3>
                 <ul>
                     ${this.matches.map((match) => html`
                         <li>
@@ -65,10 +88,12 @@ class LiveMatchWidget extends LitElement{
                             </div>
                             `;
                     }
+
                 else{
                     return html`
                     <div>
-                        <h3>No Live Matches!</h3>
+                        <h3>
+                        No Live Matches!</h3>
                         </div>`
                 }}
         
