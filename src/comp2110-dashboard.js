@@ -110,7 +110,7 @@ class Comp2110Dashboard extends LitElement {
         </div>
       <main>
         <widget-column>
-          <live-match-widget header="Live Matches" .matches=${[]} ?loading=${true} error=""></live-match-widget>
+          <live-match-widget header="Live Matches" .matches=${[]} ?testing=${true} ?loading=${true} error=""></live-match-widget>
           <widget-block header="Second Widget"></widget-block>
           <widget-block header="Third Widget"></widget-block>
         </widget-column>
