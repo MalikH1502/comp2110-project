@@ -8,9 +8,10 @@ class WidgetBlock extends LitElement {
   static styles = css`
     :host {
         display: block;
-        width: 250px;
+        width: 900px;
         height: 250px;
         background-color: azure;
+        margin: 0px 10px 0px 10px;
     }
   `;
 
