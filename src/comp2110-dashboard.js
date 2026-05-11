@@ -45,23 +45,6 @@ class Comp2110Dashboard extends LitElement {
     font-family: Roboto;
     font-style: Italic;
 }
-    .hamburger{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    margin-right: 30px;
-    }
-    .line{
-    display: inline-block;
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    }
     
     main {
       display: flex;
