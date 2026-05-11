@@ -29,9 +29,7 @@ class LiveMatchWidget extends LitElement{
             const response = await fetch(
                 "https://api.football-data.org/v4/matches?status=LIVE",
                 {
-                    method: 'GET',
-
-                    headers: { 'X-Auth-Token': 'Ca139b47f97c415bac998ca6c9914561'}
+                    method: 'GET'
                 }
             );
 
