@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 import './components/widget-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
+import './components/live-match-widget.js';
 
 class Comp2110Dashboard extends LitElement {
   static properties = {
@@ -109,7 +110,7 @@ class Comp2110Dashboard extends LitElement {
         </div>
       <main>
         <widget-column>
-          <widget-block header="First Widget"></widget-block>
+          <live-match-widget header="Live Matches" .matches=${[]} ?loading=${true} error=""></live-match-widget>
           <widget-block header="Second Widget"></widget-block>
           <widget-block header="Third Widget"></widget-block>
         </widget-column>
