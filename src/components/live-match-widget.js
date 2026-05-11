@@ -13,22 +13,41 @@ class LiveMatchWidget extends LitElement{
     static styles = css`
     :host {
         display: block;
-        width: 250px;
+        width: 900px;
         height: 250px;
         background-color: azure;
         border-style: solid;
         border-color: rgb(223, 238, 240);
         border-radius: 0 0 5px 5px;
+        margin: 0px 10px 0px 10px;
+
     }
-    h3{
+    h4{
         margin-top: 0px;
         padding: 10px;
-        background-color: rgb(249, 250, 252);
-        border-color: rgb(223, 238, 240);
-        border-style: hidden hidden solid;
         border-width: 1px;
-    }
         
+    }
+    .live-badge{
+        display: inline-flex;
+        float: right;
+        align-items: center;
+        gap: 6px;
+        background-color: rgb(247, 233, 232);
+        color: rgb(197, 71, 42);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: small;
+        line-height: 1;
+        margin-left: x;
+    }
+
+    .live-dot{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgb(197, 71, 42);
+    }    
   `;
 
     constructor() {
@@ -63,7 +82,6 @@ class LiveMatchWidget extends LitElement{
                 { homeTeam: { shortName: 'ALP' }, awayTeam: { shortName: 'BET' }, minute: '12' },
                 { homeTeam: { shortName: 'GMA' }, awayTeam: { shortName: 'DEL' }, minute: '78' }
             ];
-            return;
         }
         }
         connectedCallback(){
@@ -74,7 +92,10 @@ class LiveMatchWidget extends LitElement{
             if (this.matches.length >0){
             return html`
             <div>
-            <h3> Live Scores</h3>
+            <h4>
+             Live Match Scores
+             <span class="live-badge"><span class="live-dot"></span>Live</span>
+             </h4>
                 <ul>
                     ${this.matches.map((match) => html`
                         <li>
