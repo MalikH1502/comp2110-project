@@ -70,7 +70,7 @@ class LiveMatchWidget extends LitElement{
                 else{
                     return html`
                     <div>
-                        <h3>No Games on</h3>
+                        <h3>No Live Matches!</h3>
                         </div>`
                 }}
         
