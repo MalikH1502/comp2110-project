@@ -4,7 +4,6 @@
 .env
 ## system files
 .DS_Store
-/components/config.js
 ## npm
 /node_modules/
 /npm-debug.log
