@@ -32,7 +32,7 @@ class Comp2110Dashboard extends LitElement {
     font-size: smaller;
     background-color: rgb(15, 23, 42);
     box-sizing: border-box;
-    width: 100%;
+    width: 100%vw;
     margin: 0;
     display: flex;
     align-items: center;
@@ -98,10 +98,7 @@ class Comp2110Dashboard extends LitElement {
           <widget-block header="Third Widget"></widget-block>
         </widget-column>
       
-        <div>
-            <p>Placeholder for main content</p>
-            <p>Change anything and everything on this page</p>
-        </div>
+
 
         <widget-column>
           <ad-widget></ad-widget>
