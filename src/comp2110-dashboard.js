@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 import './components/widget-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
+import './components/standings.js';
 
 class Comp2110Dashboard extends LitElement {
   static properties = {
@@ -121,7 +122,7 @@ class Comp2110Dashboard extends LitElement {
 
         <widget-column>
           <ad-widget></ad-widget>
-          <widget-block header="Fourth Widget"></widget-block>
+          <league-standings league="PL(4th widget)"></league-standings>
           <widget-block header="Fifth Widget"></widget-block>
         </widget-column>
       </main>
