@@ -117,11 +117,11 @@ class UpcomingMatches extends LitElement {
   }
 
   async fetchMatches() {
-    const API_URL = 'https://api.football-data.org/v4/competitions/PL/matches';
-    const PROXY = 'https://corsproxy.io/?url=';
+    const API_URL = 'http://localhost:8010/proxy/v4/competitions/PL/matches';
+
 
     try {
-      const response = await fetch(`${PROXY}${API_URL}`, {
+      const response = await fetch(API_URL, {
         headers: {
           'X-Auth-Token': API_KEY
         }
@@ -133,8 +133,8 @@ class UpcomingMatches extends LitElement {
 
       const data = await response.json();
       const liveMatches = Array.isArray(data.matches)
-        ? data.matches.filter(match => match.status === 'SCHEDULED').slice(0, 3)
-        : [];
+  ? data.matches.filter(match => match.status === 'SCHEDULED' || match.status === 'TIMED').slice(0, 3)
+  : [];
 
       if (liveMatches.length > 0) {
         this.matches = liveMatches;
