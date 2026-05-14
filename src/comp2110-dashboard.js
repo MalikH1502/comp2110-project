@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 import './components/widget-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
+import './components/upcoming-matches-widget.js';
 import './components/live-match-widget.js';
 
 class Comp2110Dashboard extends LitElement {
@@ -60,8 +61,7 @@ class Comp2110Dashboard extends LitElement {
       margin-left: 5px;
     }
     .headerbar img{
-    width: 40px;
-    ;
+      width: 40px;
     }
     .header-bar .header-ball,
     .headerbar h1 .header-ball{
@@ -103,6 +103,7 @@ class Comp2110Dashboard extends LitElement {
 
         <widget-column>
           <ad-widget></ad-widget>
+          <upcoming-matches-widget matches="${[]}" ?loading = ${true} errorMessage =""></upcoming-matches-widget>
           <widget-block header="Fourth Widget"></widget-block>
           <widget-block header="Fifth Widget"></widget-block>
         </widget-column>
