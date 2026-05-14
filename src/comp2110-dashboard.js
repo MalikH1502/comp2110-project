@@ -122,7 +122,7 @@ class Comp2110Dashboard extends LitElement {
 
         <widget-column>
           <ad-widget></ad-widget>
-          <league-standings league="PL(4th widget)"></league-standings>
+          <league-standings league="PL"></league-standings>
           <widget-block header="Fifth Widget"></widget-block>
         </widget-column>
       </main>

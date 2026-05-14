@@ -1,17 +1,19 @@
-import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 
-
+const API_KEY = '4288983b2fb141ac93fa54d3624888e1';
 class Standings extends LitElement {
 
     static properties = {
-        league: {type: String},
-        _data: {state: true}
+        league: { type: String },
+        _data: { state: true }
     }
+
     static styles = css`
     :host {
         display: block;
         width: 100%;
         height: 500px;
+        overflow: auto;
         padding: 1rem;
         background-color: azure;
     }
@@ -35,8 +37,6 @@ class Standings extends LitElement {
         }
     `;
 
-    static BASE_URL = "https://api.football-data.org/v4/competitions/PL/standings";
-
     constructor() {
         super();
         this.league = "PL";
@@ -48,70 +48,62 @@ class Standings extends LitElement {
         this._fetch();
     }
 
-//     async _fetch () {
+    async _fetch() {
 
-//         try {
-//         const response = await fetch(Standings.BASE_URL, {
-//             headers: {
-//                 'X-Auth-Token': '4288983b2fb141ac93fa54d3624888e1'
-//             }
-//     });
-//         const data = await response.json();
-//         this._data = data;
-// } catch (error) {
-//     console.error('Error fetching standings:', error);
-// }
+        try {
+            const PROXY = "https://corsproxy.io/?url=";
+            const BASE_URL = "https://api.football-data.org/v4/competitions/PL/standings";
 
-//     }
-
-    _fetch () {
-        fetch(Standings.BASE_URL, {
-            headers: {
-                'X-Auth-Token': '4288983b2fb141ac93fa54d3624888e1'
-            }
-        })
-        .then(response => { 
+            const response = await fetch(`${PROXY}${BASE_URL}`, {
+                headers: { 'X-Auth-Token': API_KEY }
+            });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
-        })
-        .then(data => { 
-            console.log(data);
+            const data = await response.json();
             this._data = data;
-        })
-
-
-        .catch(error => {
+        } catch (error) {
             console.error('Error fetching standings:', error);
-        });
+        }
+
     }
+
 
     render() {
         if (this._data) {
             const standings = this._data.standings[0].table;
             return html`
             <div class ="widget"> 
-            <h3>League Standings</h3>
+            <h3>Premier League Standings</h3>
             <table>
                 <tr>
                     <th>Position</th>  
                     <th>Team</th>
+                    <th>Played</th>
+                    <th>Won</th>
+                    <th>Drawn</th>
+                    <th>Lost</th>
                     <th>Points</th>
                 </tr>
                 
                 ${standings.map(team => html`
                     <tr>
                         <td>${team.position}</td>
-                        <td>${team.team.name}</td>
+                        <td>${team.team.name}
+                        <img src="${team.team.crest}" style="width: 20px; height: auto; ">
+                        </td>
+                        <td>${team.playedGames}</td>
+                        <td>${team.won}</td>
+                        <td>${team.draw}</td>
+                        <td>${team.lost}</td>
                         <td>${team.points}</td>
                     </tr>
                 `)}
             </table>
             </div>
             `;
-        } else{
-            return html `<p>Loading...</p>`;
+        } else {
+            return html`<p>Loading...</p>`;
         }
     }
 }
