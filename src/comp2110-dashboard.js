@@ -23,6 +23,7 @@ class Comp2110Dashboard extends LitElement {
       margin: 0 auto;
       text-align: left;
       background-color: lightgoldenrodyellow;
+      font-family: Inter;
     }
     .headerbar{
     border-bottom: solid;
