@@ -32,7 +32,7 @@ class Comp2110Dashboard extends LitElement {
     padding: 12px 16px;
     font-family: Inter, sans-serif;
     font-size: smaller;
-    background-color: rgb(15, 23, 42);
+    background-color: rgb(31, 31, 31);
     box-sizing: border-box;
     width: 100%vw;
     margin: 0;
@@ -70,7 +70,7 @@ class Comp2110Dashboard extends LitElement {
       margin: 0 -7px;
     }
     .headerbar h1 .header2{
-      color: var(--header2-color, #5a8ebe);
+      color: var(--header2-color, #4caf50);
     }
   `;
 
@@ -105,7 +105,6 @@ class Comp2110Dashboard extends LitElement {
           <ad-widget></ad-widget>
           <upcoming-matches-widget matches="${[]}" ?loading = ${true} errorMessage =""></upcoming-matches-widget>
           <widget-block header="Fourth Widget"></widget-block>
-          <widget-block header="Fifth Widget"></widget-block>
         </widget-column>
       </main>
 
