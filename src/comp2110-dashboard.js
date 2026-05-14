@@ -4,6 +4,7 @@ import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/upcoming-matches-widget.js';
 import './components/live-match-widget.js';
+import './components/top-scorers.js';
 
 class Comp2110Dashboard extends LitElement {
   static properties = {
@@ -34,7 +35,7 @@ class Comp2110Dashboard extends LitElement {
     font-size: smaller;
     background-color: rgb(31, 31, 31);
     box-sizing: border-box;
-    width: 100%vw;
+    width: 100vw;
     margin: 0;
     display: flex;
     align-items: center;
@@ -96,7 +97,7 @@ class Comp2110Dashboard extends LitElement {
         <widget-column>
           <live-match-widget header="Live Matches" .matches=${[]} ?testing=${true} ?loading=${true} error=""></live-match-widget>
           <widget-block header="Second Widget"></widget-block>
-          <widget-block header="Third Widget"></widget-block>
+          <top-scorers></top-scorers>
         </widget-column>
       
 
