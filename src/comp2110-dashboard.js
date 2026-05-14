@@ -3,6 +3,7 @@ import './components/widget-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/upcoming-matches-widget.js';
+import './components/live-match-widget.js';
 
 class Comp2110Dashboard extends LitElement {
   static properties = {
@@ -23,6 +24,7 @@ class Comp2110Dashboard extends LitElement {
       margin: 0 auto;
       text-align: left;
       background-color: lightgoldenrodyellow;
+      font-family: Inter;
     }
     .headerbar{
     border-bottom: solid;
@@ -32,7 +34,7 @@ class Comp2110Dashboard extends LitElement {
     font-size: smaller;
     background-color: rgb(15, 23, 42);
     box-sizing: border-box;
-    width: 100%;
+    width: 100%vw;
     margin: 0;
     display: flex;
     align-items: center;
@@ -45,23 +47,6 @@ class Comp2110Dashboard extends LitElement {
     font-family: Roboto;
     font-style: Italic;
 }
-    .hamburger{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    margin-right: 30px;
-    }
-    .line{
-    display: inline-block;
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    }
     
     main {
       display: flex;
@@ -109,15 +94,12 @@ class Comp2110Dashboard extends LitElement {
         </div>
       <main>
         <widget-column>
-          <widget-block header="First Widget"></widget-block>
+          <live-match-widget header="Live Matches" .matches=${[]} ?testing=${true} ?loading=${true} error=""></live-match-widget>
           <widget-block header="Second Widget"></widget-block>
           <widget-block header="Third Widget"></widget-block>
         </widget-column>
       
-        <div>
-          <p>Placeholder for main content</p>
-          <p>Change anything and everything on this page</p>
-        </div>
+
 
         <widget-column>
           <ad-widget></ad-widget>
