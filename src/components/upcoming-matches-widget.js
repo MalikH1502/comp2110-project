@@ -34,14 +34,15 @@ class UpcomingMatches extends LitElement {
   static styles = css`
 
     .widget {
-      background: #1f1f1f;
+      background: rgb(31, 31, 31);
       color: white;
       padding: 16px;
       border-radius: 12px;
-      width: 280px;
+      width: 28vw;
       margin: 20px auto;
-      font-family: Arial;
+      font-family: Inter;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 3px solid rgb(223,238,240);
     }
 
     @media (max-width: 600px) {
