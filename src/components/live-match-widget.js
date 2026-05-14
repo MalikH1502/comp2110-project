@@ -15,14 +15,21 @@ class LiveMatchWidget extends LitElement {
         {
             display: block;
             width: 45vw;
-            height: 250px;
+            height: auto;
             margin: 1vw 2.5vw 1vw .5vw;
             background-color: azure;
             border-style: solid;
             border-color: rgb(223, 238, 240);
             border-radius: 0 0 5px 5px;
+            font-family:Inter;
+            border-left: 3px solid rgb(46, 68, 178);
         }
 
+        body
+        {
+            font-family:Inter, sans-serif;
+        
+        }
         h4
         {
             margin-top: 0px;
@@ -52,6 +59,10 @@ class LiveMatchWidget extends LitElement {
         li
         {
             list-style-type: none;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 0px 0px 0px 15px;
         }
 
         .card
@@ -61,18 +72,12 @@ class LiveMatchWidget extends LitElement {
             display: flex;
             justify-content: center;
             height: 50px;
-            font-weight: bold;
+            font-weight: 800;
             width: 90%;
             border-radius: 8px;
+            padding-left:30px;
         }
 
-        .card li
-        {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            margin: 0px 0px 0px 15px;
-        }
 
         .live-badge
         {
@@ -86,7 +91,7 @@ class LiveMatchWidget extends LitElement {
             border-radius: 999px;
             font-size: small;
             line-height: 1;
-            margin-left: x;
+            margin-left: 0;
             margin-bottom: 0px;
         }
     
@@ -120,6 +125,7 @@ class LiveMatchWidget extends LitElement {
         this.header = 'Live Matches'
         this.testing = true;
         this.matches = [];
+        this.loading = true;
     }
 
     async getMatches() {
@@ -178,12 +184,12 @@ class LiveMatchWidget extends LitElement {
                     <span class="live-badge"><span class="live-dot"></span>Live</span>
                 </h4>
                 <p>
+                    <img src = "src/resources/pleaguelogo.webp" height = "42px" width = "auto" style = "vertical-align:middle"><img>
                     Premier League
                 </p>
                 <ul>
                     ${this.matches.map((match) => html`
-                        <div class = "card">
-                            <li>
+                            <li class = "card">
                                 ${match.homeTeam?.shortName ?? 'Home'}
                                 <span class = "score">
                                 ${match.score?.fullTime?.home ?? 0}
@@ -195,7 +201,6 @@ class LiveMatchWidget extends LitElement {
                                 ${match.minute ?? '-'}'
                                 </span>
                             </li>
-                        </div>
                     `)}
                     </ul>
             </div>`;
