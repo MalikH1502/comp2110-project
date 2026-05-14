@@ -76,6 +76,12 @@ class LiveMatchWidget extends LitElement {
             width: 90%;
             border-radius: 8px;
             padding-left:30px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover
+        {
+        transform: translateY(-2px);
         }
 
 
@@ -95,14 +101,31 @@ class LiveMatchWidget extends LitElement {
             margin-bottom: 0px;
         }
     
-        .live-dot
+        .live-dot 
         {
             width: 8px;
             height: 8px;
             border-radius: 50%;
             background-color: rgb(197, 71, 42);
+            animation: pulse 2s infinite;
+            transform: scale(1);
         }
 
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(222, 84, 72, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(222, 84, 72, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(222, 84, 72, 0);
+            }
+        }
+        
         .minute
         {
             margin-left: auto;
