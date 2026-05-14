@@ -117,11 +117,12 @@ class UpcomingMatches extends LitElement {
   }
 
   async fetchMatches() {
-    const API_URL = 'http://localhost:8010/proxy/v4/competitions/PL/matches';
+    const PROXY = 'https://corsproxy.io/?url=';
+    const API_URL = 'https://api.football-data.org/v4/competitions/PL/matches';
 
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(`${PROXY}${API_URL}`, {
         headers: {
           'X-Auth-Token': API_KEY
         }
