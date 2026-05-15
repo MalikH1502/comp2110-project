@@ -78,7 +78,7 @@ class Comp2110Dashboard extends LitElement {
 
   constructor() {
     super();
-    this.header = "Futb";
+    this.header = "Fútb";
     this.header2 = "Tracker";
     this.imgurl = "https://freesvg.org/img/Gerald_G_Soccer_Ball.png";
     this.imgalttext = "soccerBall";
