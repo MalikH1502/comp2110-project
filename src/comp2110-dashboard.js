@@ -2,13 +2,10 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 import './components/widget-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
-<<<<<<< HEAD
-import './components/standings.js';
-=======
+import './components/league-standings.js';
 import './components/upcoming-matches-widget.js';
 import './components/live-match-widget.js';
 import './components/top-scorers.js';
->>>>>>> 1b222fcdb0f986880e3bb0482f0b679aa5ffe3a5
 
 class Comp2110Dashboard extends LitElement {
   static properties = {
@@ -100,7 +97,7 @@ class Comp2110Dashboard extends LitElement {
       <main>
         <widget-column>
           <live-match-widget header="Live Matches" .matches=${[]} ?testing=${true} ?loading=${true} error=""></live-match-widget>
-          <widget-block header="Second Widget"></widget-block>
+          <league-standings league = "PL" _data = "undefined"></league-standings>
           <top-scorers></top-scorers>
         </widget-column>
       
