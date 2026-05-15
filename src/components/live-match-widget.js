@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import { API_KEY } from '../config.js';
 class LiveMatchWidget extends LitElement {
+    // properties dec
     static properties = {
         header: { type: String },
         matches: { type: Array },
@@ -148,7 +149,7 @@ class LiveMatchWidget extends LitElement {
             font-size: larger;
         }`;
 
-    constructor() {
+    constructor() { //initialise object
         super();
         this.header = 'Live Matches'
         this.testing = true;
@@ -157,7 +158,8 @@ class LiveMatchWidget extends LitElement {
     }
 
     async getMatches() {
-        try {
+            try {
+            // proxy to bypass CORS errors
             const PROXY = 'https://corsproxy.io/?url=';
             const BASE_URL = 'https://api.football-data.org/v4';
 
@@ -192,6 +194,7 @@ class LiveMatchWidget extends LitElement {
         this.getMatches();
     }
 
+    // final render method
     render() {
         if (this.loading) {
             return html`
@@ -204,6 +207,7 @@ class LiveMatchWidget extends LitElement {
             <p> Error: ${this.error}<p>`
         }
 
+        // if there is a live match
         if (this.matches.length > 0) {
             return html`
             <div>
