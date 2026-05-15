@@ -6,11 +6,16 @@ class WidgetBlock extends LitElement {
   }
 
   static styles = css`
-    :host {
+   :host {
         display: block;
-        width: 250px;
+        width: 45vw;
         height: 250px;
         background-color: azure;
+        border-style: solid;
+        border-color: rgb(223, 238, 240);
+        border-radius: 0 0 5px 5px;
+        margin: 1vw 2.5vw 1vw .5vw
+
     }
   `;
 

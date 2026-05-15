@@ -2,7 +2,13 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 import './components/widget-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
+<<<<<<< HEAD
 import './components/standings.js';
+=======
+import './components/upcoming-matches-widget.js';
+import './components/live-match-widget.js';
+import './components/top-scorers.js';
+>>>>>>> 1b222fcdb0f986880e3bb0482f0b679aa5ffe3a5
 
 class Comp2110Dashboard extends LitElement {
   static properties = {
@@ -23,6 +29,7 @@ class Comp2110Dashboard extends LitElement {
       margin: 0 auto;
       text-align: left;
       background-color: lightgoldenrodyellow;
+      font-family: Inter;
     }
     .headerbar{
     border-bottom: solid;
@@ -30,9 +37,9 @@ class Comp2110Dashboard extends LitElement {
     padding: 12px 16px;
     font-family: Inter, sans-serif;
     font-size: smaller;
-    background-color: rgb(15, 23, 42);
+    background-color: rgb(31, 31, 31);
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     display: flex;
     align-items: center;
@@ -45,23 +52,6 @@ class Comp2110Dashboard extends LitElement {
     font-family: Roboto;
     font-style: Italic;
 }
-    .hamburger{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    margin-right: 30px;
-    }
-    .line{
-    display: inline-block;
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    }
     
     main {
       display: flex;
@@ -76,8 +66,7 @@ class Comp2110Dashboard extends LitElement {
       margin-left: 5px;
     }
     .headerbar img{
-    width: 40px;
-    ;
+      width: 40px;
     }
     .header-bar .header-ball,
     .headerbar h1 .header-ball{
@@ -86,7 +75,7 @@ class Comp2110Dashboard extends LitElement {
       margin: 0 -7px;
     }
     .headerbar h1 .header2{
-      color: var(--header2-color, #5a8ebe);
+      color: var(--header2-color, #4caf50);
     }
   `;
 
@@ -110,20 +99,17 @@ class Comp2110Dashboard extends LitElement {
         </div>
       <main>
         <widget-column>
-          <widget-block header="First Widget"></widget-block>
+          <live-match-widget header="Live Matches" .matches=${[]} ?testing=${true} ?loading=${true} error=""></live-match-widget>
           <widget-block header="Second Widget"></widget-block>
-          <widget-block header="Third Widget"></widget-block>
+          <top-scorers></top-scorers>
         </widget-column>
       
-        <div>
-            <p>Placeholder for main content</p>
-            <p>Change anything and everything on this page</p>
-        </div>
+
 
         <widget-column>
           <ad-widget></ad-widget>
-          <league-standings league="PL"></league-standings>
-          <widget-block header="Fifth Widget"></widget-block>
+          <upcoming-matches-widget matches="${[]}" ?loading = ${true} errorMessage =""></upcoming-matches-widget>
+          <widget-block header="Fourth Widget"></widget-block>
         </widget-column>
       </main>
 

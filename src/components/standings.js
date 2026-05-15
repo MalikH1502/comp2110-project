@@ -11,11 +11,7 @@ class Standings extends LitElement {
     static styles = css`
     :host {
         display: block;
-        width: 100%;
-        height: 500px;
-        overflow: auto;
         padding: 1rem;
-        background-color: azure;
     }
     :host p {
         position: relative;
