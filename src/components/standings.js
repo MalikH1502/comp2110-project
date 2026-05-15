@@ -13,6 +13,8 @@ class Standings extends LitElement {
         display: block;
         padding: 1rem;
     }
+
+    
     :host p {
         position: relative;
         top: -50px;
