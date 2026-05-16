@@ -104,11 +104,11 @@ class AdWidget extends LitElement {
     this.isFading = false;
 
     this.adInventory = [
-      { url: 'src/resources/pexels-daniel-agundiz-2159069831-35927933.jpg', headline: 'Gear Up for the New Season!', cta: 'Shop Cleats' },
-      { url: 'src/resources/pexels-rdne-7188091.jpg', headline: 'Hydration for Peak Performance.', cta: 'Buy Now' },
-      { url: 'src/resources/izuddin-helmi-adnan-K5ChxJaheKI-unsplash.jpg', headline: 'Global Sports News 24/7', cta: 'Read More' },
-      { url: 'src/resources/amit-lahav-6I-HWjwn-hk-unsplash.jpg', headline: 'Live Odds & Match Predictions', cta: 'View Odds' },
-      { url: 'src/resources/javid-naderi-xShLnB1e9KU-unsplash.jpg', headline: 'Official Club Merchandise', cta: 'Shop Kits' }
+      { url: 'comp2110-project/src/resources/pexels-daniel-agundiz-2159069831-35927933.jpg', headline: 'Gear Up for the New Season!', cta: 'Shop Cleats' },
+      { url: 'comp2110-project/src/resources/pexels-rdne-7188091.jpg', headline: 'Hydration for Peak Performance.', cta: 'Buy Now' },
+      { url: 'comp2110-project/src/resources/izuddin-helmi-adnan-K5ChxJaheKI-unsplash.jpg', headline: 'Global Sports News 24/7', cta: 'Read More' },
+      { url: 'comp2110-project/src/resources/amit-lahav-6I-HWjwn-hk-unsplash.jpg', headline: 'Live Odds & Match Predictions', cta: 'View Odds' },
+      { url: 'comp2110-project/src/resources/javid-naderi-xShLnB1e9KU-unsplash.jpg', headline: 'Official Club Merchandise', cta: 'Shop Kits' }
     ];
 
     this.currentAd = this.getRandomAd();
