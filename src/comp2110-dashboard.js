@@ -22,7 +22,7 @@ class Comp2110Dashboard extends LitElement {
       min-height: 100vh;   
       font-size: 14pt;
       color: #1a2b42;
-      max-width: 960px;
+      width: 100%;
       margin: 0 auto;
       text-align: left;
       background-color: lightgoldenrodyellow;
@@ -38,7 +38,7 @@ class Comp2110Dashboard extends LitElement {
     font-size: smaller;
     background-color: rgb(31, 31, 31);
     box-sizing: border-box;
-    width: 115%;
+    width: 100%;
     margin: 0;
     display: flex;
     align-items: center;
