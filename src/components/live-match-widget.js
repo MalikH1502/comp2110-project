@@ -184,8 +184,8 @@ class LiveMatchWidget extends LitElement {
         // If testing mode is enabled, skip the network call and use placeholder data
         if (this.testing) {
             this.matches = [
-                { score: { fullTime: { home: '3', away: '2' } }, homeTeam: { shortName: 'ALP' }, awayTeam: { shortName: 'BET' }, minute: '12' },
-                { score: { fullTime: { home: '3', away: '2' } }, homeTeam: { shortName: 'GMA' }, awayTeam: { shortName: 'DEL' }, minute: '78' }
+                { score: { fullTime: { home: '6', away: '7' } }, homeTeam: { shortName: 'Man United' }, awayTeam: { shortName: 'Chelsea' }, minute: '12' },
+                { score: { fullTime: { home: '9', away: '4' } }, homeTeam: { shortName: 'Arsenal' }, awayTeam: { shortName: 'Blackburn'}, minute: '78' }
             ];
         }
     }

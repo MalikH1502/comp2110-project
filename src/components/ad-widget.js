@@ -10,16 +10,34 @@ class AdWidget extends LitElement {
     :host {
         display: block;
         width: 250px;
-        height: 250px;
+        height: 1300px;
         background-color: azure;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        display: block;
+    }
+
     :host p {
-      position: relative;
-      top: -50px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
       text-align: right;
-      padding-right: 10px;
-      z-index: 0;
+      padding: 4px 10px;
+      box-sizing: border-box;
+      z-index: 1;
       color: white;
+      font-size: 0.8rem;
     }
   `;
 
@@ -32,7 +50,7 @@ class AdWidget extends LitElement {
     return html`
   <div>
         <img src=${this.adUrl} alt="Advertisment">
-        <p>Advertisment</p>
+        <p>Sponsored</p>
   </div>
     `;
   }

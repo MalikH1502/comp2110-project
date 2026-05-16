@@ -39,7 +39,7 @@ class UpcomingMatches extends LitElement {
       padding: 16px;
       border-radius: 12px;
       width: 28vw;
-      margin: 20px auto;
+      margin: 20px auto auto auto;
       font-family: Inter;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       border: 3px solid rgb(223,238,240);

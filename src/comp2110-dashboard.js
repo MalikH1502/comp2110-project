@@ -29,6 +29,8 @@ class Comp2110Dashboard extends LitElement {
       font-family: Inter;
     }
     .headerbar{
+    position: sticky;
+    top: 0;
     border-bottom: solid;
     border-width: thin;
     padding: 12px 16px;
@@ -36,11 +38,12 @@ class Comp2110Dashboard extends LitElement {
     font-size: smaller;
     background-color: rgb(31, 31, 31);
     box-sizing: border-box;
-    width: 100vw;
+    width: 115%;
     margin: 0;
     display: flex;
     align-items: center;
     border-color: #928888;
+    z-index:1000;
 
 }
 .headerbar h1{
@@ -49,9 +52,19 @@ class Comp2110Dashboard extends LitElement {
     font-family: Roboto;
     font-style: Italic;
 }
-    
+    ad-widget{
+      position: sticky;
+      top:20px;
+      flex-shrink: 0;
+    }
     main {
       display: flex;
+      gap: 20px;
+      padding: 20px;
+      align-items: flex-start;
+    }
+    widget-column{
+      flex: 1;
     }
 
     .app-footer {
@@ -98,16 +111,18 @@ class Comp2110Dashboard extends LitElement {
         <widget-column>
           <live-match-widget header="Live Matches" .matches=${[]} ?testing=${true} ?loading=${true} error=""></live-match-widget>
           <league-standings league = "PL" _data = "undefined"></league-standings>
-          <top-scorers></top-scorers>
         </widget-column>
       
 
 
         <widget-column>
-          <ad-widget></ad-widget>
           <upcoming-matches-widget matches="${[]}" ?loading = ${true} errorMessage =""></upcoming-matches-widget>
-          <widget-block header="Fourth Widget"></widget-block>
+          <top-scorers></top-scorers>
         </widget-column>
+        <widget-column>
+          <ad-widget></ad-widget>
+        </widget-column>
+
       </main>
 
       <p class="app-footer">
