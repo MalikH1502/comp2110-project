@@ -215,7 +215,7 @@ class LiveMatchWidget extends LitElement {
                     Live Match Scores
                     <span class="live-badge"><span class="live-dot"></span>Live</span>
                 </h2>
-                    <img src="src/resources/pleaguelogo.png" 
+                    <img src="comp2110-project/src/resources/pleaguelogo.png" 
                         style="display: block; margin-left: auto; margin-right: auto; height: 42px; width: auto;">                </p>
                 <ul>
                     ${this.matches.map((match) => html`
