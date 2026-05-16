@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { API_KEY } from '../config.js';
 
-const API_KEY = '4288983b2fb141ac93fa54d3624888e1';
 class Standings extends LitElement {
 
     static properties = {
@@ -11,28 +11,80 @@ class Standings extends LitElement {
     static styles = css`
     :host {
         display: block;
-        padding: 1rem;
+        width: 40vw;
+        margin: 20px auto;
+        background-color: rgb(31, 31, 31);
+        border-style: solid;
+        border-color: rgb(223, 238, 240);
+        border-radius: 12px;
+        font-family:Inter;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    
-    :host p {
-        position: relative;
-        top: -50px;
-        text-align: right;
-        padding-right: 10px;
-        z-index: 0;
-        color: white;
-    }
-        
+    h2 {
+        margin: 0;
+        padding: 10px;
+        font-size: 22px;
+        font-weight: 700;
+        }
+
     table {
         width: 100%;
-        border-collapse: collapse;
-        }
-    th, td {
-        border: 1px solid #ccc;
-        padding: 8px;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+        padding: 10px;
+    }
+
+    th{
+    
+        padding: 8px 10px;
+        font-size: 12px;
         text-align: left;
+        color: #b5b5b5;
+    }
+
+     td {
+        padding: 8px;
+        font-size: 12px;
+        vertical-align: middle;
+    }
+    
+    tbody tr{
+        background-color: #2b2b2b;
+        transition: transform 0.2s ease;
+    }
+
+    tr:hover {
+        transform: translateY(-2px);
         }
+
+    tbody tr td:first-child {
+        border-left: 3px solid #4caf50;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+
+    tbody tr td:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    img{
+        width: 20px;
+        height: auto;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+
+    .position {
+        color: #aaa;
+        width: 30px;
+    }
+
+    .points {
+        font-weight: bold;
+        color: #4caf50;
+    } 
     `;
 
     constructor() {
@@ -69,11 +121,11 @@ class Standings extends LitElement {
 
     render() {
         if (this._data) {
-            const standings = this._data.standings[0].table;
+            const standings = this._data?.standings[0]?.table?? [];
             return html`
-            <div class ="widget"> 
-            <h3>Premier League Standings</h3>
+            <h2>${this.league} League Standings</h2>
             <table>
+            <thead>
                 <tr>
                     <th>Position</th>  
                     <th>Team</th>
@@ -83,20 +135,26 @@ class Standings extends LitElement {
                     <th>Lost</th>
                     <th>Points</th>
                 </tr>
-                
+                </thead>
+
+                <tbody>
                 ${standings.map(team => html`
                     <tr>
-                        <td>${team.position}</td>
-                        <td>${team.team.name}
+                        <td class="position">${team.position}</td>
+                       
+                        <td>
                         <img src="${team.team.crest}" style="width: 20px; height: auto; ">
+                        ${team.team.name}
                         </td>
+
                         <td>${team.playedGames}</td>
                         <td>${team.won}</td>
                         <td>${team.draw}</td>
                         <td>${team.lost}</td>
-                        <td>${team.points}</td>
+                        <td class="points">${team.points}</td>
                     </tr>
                 `)}
+                </tbody>
             </table>
             </div>
             `;
