@@ -158,6 +158,15 @@ class LiveMatchWidget extends LitElement {
     }
 
     async getMatches() {
+        // if testing, skip network checks
+        if (this.testing) {
+            this.matches = [
+                { score: { fullTime: { home: '6', away: '7' } }, homeTeam: { shortName: 'Man United' }, awayTeam: { shortName: 'Chelsea' }, minute: '12' },
+                { score: { fullTime: { home: '9', away: '4' } }, homeTeam: { shortName: 'Arsenal' }, awayTeam: { shortName: 'Blackburn'}, minute: '78' }
+            ];
+            this.loading = false;
+            return;
+        }
             try {
             // proxy to bypass CORS errors
             const PROXY = 'https://corsproxy.io/?url=';
@@ -180,13 +189,7 @@ class LiveMatchWidget extends LitElement {
 
         catch (error) {
             this.error = error.message;
-        }
-        // If testing mode is enabled, skip the network call and use placeholder data
-        if (this.testing) {
-            this.matches = [
-                { score: { fullTime: { home: '6', away: '7' } }, homeTeam: { shortName: 'Man United' }, awayTeam: { shortName: 'Chelsea' }, minute: '12' },
-                { score: { fullTime: { home: '9', away: '4' } }, homeTeam: { shortName: 'Arsenal' }, awayTeam: { shortName: 'Blackburn'}, minute: '78' }
-            ];
+            this.loading = false;
         }
     }
     connectedCallback() {
